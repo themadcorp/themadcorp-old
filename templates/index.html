@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html>
+<title>The MAD Corp.</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="black">
+<link href='{{ url_for('static', filename='css/bootstrap.css') }}' rel='stylesheet' />
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='img/tmc-logo-plain-crop.png') }}">
+
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+<!-- Rotating cards css -->
+<link href='{{ url_for('static', filename='css/rotating-card.css') }}' rel='stylesheet' />
+
+<!-- w3 css -->
+<link href="{{ url_for('static', filename='css/w3.css') }}" rel="stylesheet">
+
+<style>
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+body, html {
+    height: 100%;
+    color: #777;
+    line-height: 1.8;
+	background-color: #f1f1f1;
+}
+
+.parallax {
+  perspective: 100px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: absolute;
+  margin-left: -1500px;
+}
+
+/* Create a Parallax Effect */
+.bgimg-1, .bgimg-2, .bgimg-3 {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+	-webkit-transform: scale(1);
+}
+
+/* Logo Background(Full height) */
+.logo {
+    background-color: black;
+    min-height: 100%;
+}
+
+/* First image (About) */
+.bgimg-1 {
+    background-image: url('{{ url_for('static', filename='img/tmc-logo-bg.jpg') }}');
+    min-height: 400px;
+}
+
+/* Second image (Team) */
+.bgimg-2 {
+    background-image: url("{{ url_for('static', filename='img/mbg2.jpg') }}");
+    min-height: 400px;
+}
+
+/* Third image (Contact) */
+.bgimg-3 {
+    background-image: url("{{ url_for('static', filename='img/mbg4.jpg') }}");
+    min-height: 400px;
+}
+
+.w3-wide {letter-spacing: 10px;}
+.w3-hover-opacity {cursor: pointer;}
+
+/* Turn off parallax scrolling for tablets and phones
+@media only screen and (max-device-width: 1024px) {
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+        background-attachment: scroll;
+    }*/
+}
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <nav class="w3-bar w3-padding w3-large" id="mainNav">
+
+    <a class="w3-bar-item w3-button w3-hover-none w3-hide-medium w3-hide-large w3-right" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+		<i class="fa fa-bars w3-xlarge"></i>
+    </a>
+
+	<a class="w3-bar-item w3-button w3-hover-none w3-hide-medium w3-hide-large w3-right" href="Parallax.html">
+		<img src="{{ url_for('static', filename='img/tmc-logo-plain-nav.png') }}" style="height:20px;" alt="The Mad Corp">
+    </a>
+
+	<a href="#home" class="w3-bar-item w3-button js-scroll-trigger w3-text-grey" style="text-decoration:none;">HOME</a>
+	<a href="#about" class="w3-bar-item w3-button w3-hide-small js-scroll-trigger w3-text-grey" style="text-decoration:none;"><i class="fa fa-user"></i> ABOUT</a>
+	<a href="#team" class="w3-bar-item w3-button w3-hide-small js-scroll-trigger w3-text-grey" style="text-decoration:none;"><i class="fa fa-th"></i> TEAM</a>
+	<a href="#contact" class="w3-bar-item w3-button w3-hide-small js-scroll-trigger w3-text-grey" style="text-decoration:none;"><i class="fa fa-envelope"></i> CONTACT</a>
+	<a href="Parallax.html" class="w3-bar-item w3-hide-small w3-right js-scroll-trigger">
+		<img src="{{ url_for('static', filename='img/tmc-logo-plain-nav.png') }}" style="height:30px;"></img>
+	</a>
+  </nav>
+
+  <!-- Navbar on small screens -->
+  <div class="w3-container w3-bar-block w3-white w3-hide-large w3-hide-medium w3-card-4">
+        <div class="collapse" id="navbarResponsive">
+          <ul class="w3-container w3-padding-32">
+            <li class="w3-button" style="text-align:left; width:100%;">
+              <a class="js-scroll-trigger w3-text-grey" href="#about"><i class="fa fa-user w3-large w3-margin-left w3-margin-right"></i> ABOUT</a>
+            </li>
+            <li class="w3-button" style="text-align:left; width:100%;">
+              <a class="js-scroll-trigger w3-text-grey" href="#team"><i class="fa fa-th w3-large w3-margin-left w3-margin-right"></i> TEAM</a>
+            </li>
+            <li class="w3-button" style="text-align:left; width:100%;">
+              <a class="js-scroll-trigger w3-text-grey" href="#contact"><i class="fa fa-envelope w3-large w3-margin-left w3-margin-right"></i> CONTACT</a>
+            </li>
+			<li class="w3-button" style="text-align:left; width:100%;">
+              <a class="js-scroll-trigger w3-text-grey" href="Parallax.html"><i class="fa fa-search w3-large w3-margin-left w3-margin-right"></i> SEARCH</a>
+            </li>
+          </ul>
+        </div>
+   </div>
+</div>
+
+<!-- First container with Logo Text -->
+<header class="logo w3-display-container w3-padding-64 w3-card-4" id="home" >
+  <div class="w3-display-middle">
+    <h1 class="w3-center w3-padding-large w3-black w3-xxxlarge w3-wide w3-animate-opacity">The MAD Corp.</h1>
+	<p class="w3-center w3-large">Innovation & Technology Company.</p>
+  </div>
+</header>
+
+<!-- Container (About Section) -->
+<div class="bgimg-1 w3-display-container" id="about">
+  <div class="w3-display-middle">
+    <span class="w3-xxlarge w3-text-white w3-wide">ABOUT</span>
+  </div>
+</div>
+
+<div class="w3-padding-large w3-card-4">
+<div class="w3-content w3-justify w3-text-grey w3-padding-64">
+  <h2>About Us</h2>
+    <hr style="width:200px;">
+    <p class="w3-text-dark-grey">We're are an Innovation & Technology Company. Driven by the idea of conquering the world, we intend to change the
+	world in a better way through Technology & Science.
+    </p>
+    <br>
+    <div class="w3-row w3-center w3-padding-32 w3-section w3-black w3-opacity-min w3-card-4" style="border-radius:5px">
+      <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">0</span><br>
+		Partners
+      </div>
+      <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">0</span><br>
+        Projects Done
+      </div>
+      <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">0</span><br>
+        Happy Clients
+      </div>
+      <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">10+</span><br>
+        Meetings
+      </div>
+    </div>
+</div>
+</div>
+<!--End of About section -->
+
+<!-- Second Parallax Image with Team Text -->
+<div class="bgimg-2 w3-display-container" id="team">
+  <div class="w3-display-middle">
+    <span class="w3-xxlarge w3-text-white w3-wide">TEAM</span>
+  </div>
+</div>
+
+<!-- Container (Team section) -->
+<div class="w3-padding-large">
+<div class="w3-container w3-justify w3-text-grey w3-padding-64">
+	<div class="w3-content">
+		<h2>The Team</h2>
+		<hr style="width:200px;">
+		<br>
+	</div>
+	<div class="w3-row-padding">
+        <div class="col-sm-10 col-sm-offset-1">
+
+		<!--Aditya Sharma-->
+         <div class="col-md-4 col-sm-6">
+             <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="cover">
+                            <img src="{{ url_for('static', filename='img/mbg7.jpg') }}"/>
+                        </div>
+                        <div class="user">
+                            <img class="img-circle" src="{{ url_for('static', filename='img/Aditya.jpg') }}" alt="Aditya Sharma"/>
+                        </div>
+                        <div class="content">
+                            <div class="main">
+                                <h3 class="name">Aditya Sharma</h3>
+                                <p class="profession">CTO</p>
+                                <p class="text-center">"Keep it Simple Stupid!"</p>
+                            </div>
+							<div class="card-footer w3-margin">
+								<p>Developer / Designer</p>
+							</div>
+                        </div>
+                    </div> <!-- end front panel -->
+                    <div class="back">
+                        <div class="header">
+                            <h5 class="motto">"Perception - Perseverance - Perfection"</h5>
+                        </div>
+                        <div class="content">
+                            <div class="main">
+                                <h4 class="text-center">Job Description</h4>
+                                <p class="text-center">Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others...</p>
+
+                                <div class="stats-container">
+                                    <div class="stats">
+                                        <h4>235</h4>
+                                        <p>
+                                            Followers
+                                        </p>
+                                    </div>
+                                    <div class="stats">
+                                        <h4>114</h4>
+                                        <p>
+                                            Following
+                                        </p>
+                                    </div>
+                                    <div class="stats">
+                                        <h4>35</h4>
+                                        <p>
+                                            Projects
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="card-footer w3-margin">
+                            <div class="social-links text-center">
+                                <a href="" class="facebook"><i class="fa fa-facebook fa-fw w3-hover-text-indigo"></i></a>
+                                <a href="https://plus.google.com/+AdityaSharma26" class="google"><i class="fa fa-google-plus fa-fw w3-hover-text-red"></i></a>
+                                <a href="" class="twitter"><i class="fa fa-twitter fa-fw w3-hover-text-blue"></i></a>
+                            </div>
+                        </div>
+                    </div> <!-- end back panel -->
+                </div> <!-- end card -->
+            </div> <!-- end card-container -->
+        </div> <!-- end col sm 3 -->
+
+		<!--Devendra Sikarwar-->
+        <div class="col-md-4 col-sm-6">
+             <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="cover">
+                            <img src="{{ url_for('static', filename='img/mbg5.jpg') }}"/>
+                        </div>
+                        <div class="user">
+                            <img class="img-circle" src="{{ url_for('static', filename='img/Devendra.jpg') }}" alt="Devendra Sikarwar"/>
+                        </div>
+                        <div class="content">
+                            <div class="main">
+                                <h3 class="name">Devendra Sikarwar</h3>
+                                <p class="profession">CEO</p>
+                                <p class="text-center">"Imagination is Innovation!"</p>
+                            </div>
+                            <div class="card-footer w3-margin">
+								<p>Financial Hacker</p>
+							</div>
+                        </div>
+                    </div> <!-- end front panel -->
+                    <div class="back">
+                        <div class="header">
+                            <h5 class="motto">"The Pursuit is Destination!"</h5>
+                        </div>
+                        <div class="content">
+                            <div class="main">
+                                <h4 class="text-center">Job Description</h4>
+                                <p class="text-center">Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others...</p>
+
+                                <div class="stats-container">
+                                    <div class="stats">
+                                        <h4>235</h4>
+                                        <p>
+                                            Followers
+                                        </p>
+                                    </div>
+                                    <div class="stats">
+                                        <h4>114</h4>
+                                        <p>
+                                            Following
+                                        </p>
+                                    </div>
+                                    <div class="stats">
+                                        <h4>35</h4>
+                                        <p>
+                                            Projects
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="card-footer w3-margin">
+                            <div class="social-links text-center">
+                                 <a href="" class="facebook"><i class="fa fa-facebook fa-fw w3-hover-text-indigo"></i></a>
+                                <a href="https://plus.google.com/+" class="google"><i class="fa fa-google-plus fa-fw w3-hover-text-red"></i></a>
+                                <a href="" class="twitter"><i class="fa fa-twitter fa-fw w3-hover-text-blue"></i></a>
+                            </div>
+                        </div>
+                    </div> <!-- end back panel -->
+                </div> <!-- end card -->
+            </div> <!-- end card-container -->
+        </div> <!-- end col sm 3 -->
+
+		<!--Mayank Shukla-->
+        <div class="col-md-4 col-sm-6">
+             <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="cover">
+                            <img src="{{ url_for('static', filename='img/mbg3.jpg') }}"/>
+                        </div>
+                        <div class="user">
+                            <img class="img-circle" src="{{ url_for('static', filename='img/Mayank.jpg') }}" alt="Mayank Shukla"/>
+                        </div>
+                        <div class="content">
+                            <div class="main">
+                                <h3 class="name">Mayank Shukla</h3>
+                                <p class="profession">CMO</p>
+                                <p class="text-center">"The change is YOU."</p>
+                            </div>
+                            <div class="card-footer w3-margin">
+								<p>Researcher / Advisor</p>
+							</div>
+                        </div>
+                    </div> <!-- end front panel -->
+                    <div class="back">
+                        <div class="header">
+                            <h5 class="motto">"To be or not to be, this is my awesome motto!"</h5>
+                        </div>
+                        <div class="content">
+                            <div class="main">
+                                <h4 class="text-center">Job Description</h4>
+                                <p class="text-center">Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others...</p>
+
+                                <div class="stats-container">
+                                    <div class="stats">
+                                        <h4>235</h4>
+                                        <p>
+                                            Followers
+                                        </p>
+                                    </div>
+                                    <div class="stats">
+                                        <h4>114</h4>
+                                        <p>
+                                            Following
+                                        </p>
+                                    </div>
+                                    <div class="stats">
+                                        <h4>35</h4>
+                                        <p>
+                                            Projects
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="card-footer w3-margin">
+                            <div class="social-links text-center">
+                                <a href="" class="facebook"><i class="fa fa-instagram fa-fw w3-hover-text-pink"></i></a>
+                                <a href="https://plus.google.com/+" class="google"><i class="fa fa-google-plus fa-fw w3-hover-text-red"></i></a>
+                                <a href="" class="twitter"><i class="fa fa-twitter fa-fw w3-hover-text-blue"></i></a>
+                            </div>
+                        </div>
+                    </div> <!-- end back panel -->
+                </div> <!-- end card -->
+            </div> <!-- end card-container -->
+        </div> <!-- end col sm 3 -->
+        </div> <!-- end col-sm-10 -->
+    </div> <!-- end row -->
+</div>
+</div>
+  <!-- End Team Section -->
+
+<!-- Modal for full size images on click-->
+<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+  <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+    <img id="img01" class="w3-image">
+    <p id="caption" class="w3-opacity w3-large"></p>
+  </div>
+</div>
+
+<!-- Third Parallax Image with Contact Text -->
+<div class="bgimg-3 w3-display-container" id="contact">
+  <div class="w3-display-middle">
+     <span class="w3-xxlarge w3-text-white w3-wide">CONTACT</span>
+  </div>
+</div>
+
+<!-- Container (Contact Section) -->
+<div class="w3-padding-large w3-card-4">
+<div class="w3-content w3-justify w3-text-grey w3-padding-64">
+  <h2 class="w3-text-grey">Contact Us</h2>
+  <hr style="width:200px" style="font-color:black">
+  <p><em>We'd love your feedback!</em></p>
+
+  <div class="w3-row w3-padding-32 w3-section">
+    <div class="w3-col m4 w3-container">
+	  <!-- Add Google Maps -->
+      <div id="googleMap" class="w3-round-large w3-greyscale" style="width:100%;height:400px;"></div>
+    </div>
+
+    <div class="w3-col m8 w3-panel">
+      <div class="w3-large w3-margin-bottom w3-margin-top">
+        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i>Indore, India<br>
+        <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i>Phone: +91 9201162632<br>
+        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i>Email: themadcorp@gmail.com<br>
+      </div>
+      <p>Swing by for a cup of <i class="fa fa-coffee w3-text-brown"></i>, or leave us a note:</p>
+
+	  <form action="{{url_for('next')}}" target="_blank" method="post">
+        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+          <div class="w3-half">
+            <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+          </div>
+          <div class="w3-half">
+            <input class="w3-input w3-border" type="email" placeholder="Email" required name="Email">
+          </div>
+        </div>
+
+        <textarea rows="3" class="w3-input w3-border" placeholder="Message" required name="Message"></textarea>
+
+        <button class="w3-button w3-light-grey w3-padding-large w3-right w3-section" type="submit">
+          <i class="fa fa-paper-plane"></i> SEND MESSAGE
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Footer -->
+<div class="w3-container w3-black w3-center" style="opacity:0.9">
+  <footer class="w3-content w3-text-grey w3-xlarge w3-padding-64">
+    <a href=""><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
+    <a href=""><i class="fa fa-instagram w3-hover-opacity"></i></a>
+    <!-- <a href=""><i class="fa fa-pinterest-p w3-hover-opacity"></i></a> -->
+    <a href=""><i class="fa fa-twitter w3-hover-opacity"></i></a>
+    <a href="https://www.linkedin.com/company/themadcorp/"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+    <a href="https://github.com/themadcorp"><i class="fa fa-github w3-hover-opacity"></i></a>
+
+    <p class="w3-medium"> <i class="fa fa-code w3-text-indigo"></i> with <i class="fa fa-heart w3-text-red"></i> in India</p>
+  </footer>
+</div>
+<!-- End footer -->
+
+<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) --
+    <div class="w3-scroll-to-top w3-d-lg-none w3-position-fixed ">
+      <a class="js-scroll-trigger w3-d-block w3-text-center w3-white" href="#home">
+        <i class="fa fa-chevron-up"></i>
+      </a>
+    </div>-->
+
+
+<!-- Bootstrap core JavaScript -->
+<script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+
+<!-- Plugin JavaScript -->
+<script src="{{ url_for('static', filename='vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+
+<!-- Custom scripts for this template -->
+<script src="{{ url_for('static', filename='js/freelancer.min.js') }}"></script>
+
+
+<!-- Add Google Maps -->
+<script>
+function myMap()
+{
+  myCenter=new google.maps.LatLng(22.7196, 75.8577);
+  var mapOptions= {
+    center:myCenter,
+    zoom:12, scrollwheel: false, draggable: false,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("googleMap"),mapOptions);
+
+  var marker = new google.maps.Marker({
+    position: myCenter,
+  });
+  marker.setMap(map);
+}
+
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+// Change style of navbar on scroll
+window.onscroll = function() {myFunction()};
+function myFunction() {
+    var navbar = document.getElementById("mainNav");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white" + " w3-large" +" w3-text-grey" + " w3-padding" + " navbar-expand-lg";
+    } else {
+        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", " w3-animate-opacity");
+    }
+}
+
+// Used to toggle the menu on small screens when clicking on the menu button
+function toggleFunction() {
+    var x = document.getElementById("navbarResponsive");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+
+<script src="{{ url_for('static', filename='js/jquery-1.10.2.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}" type="text/javascript"></script>
+
+<!-- Google API -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4Qfgxz6KKDBYbuynB8Wj-2FJA1sjCeOk&callback=myMap"></script>
+
+<!-- Script for rotating cards -->
+<script type="text/javascript">
+    $().ready(function(){
+        $('[rel="tooltip"]').tooltip();
+
+    });
+
+    function rotateCard(btn){
+        var $card = $(btn).closest('.card-container');
+        console.log($card);
+        if($card.hasClass('hover')){
+            $card.removeClass('hover');
+        } else {
+            $card.addClass('hover');
+        }
+    }
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46172202-4', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<!-- Firebase Script -->
+
+<!--<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>-->
+<script src="/__/firebase/4.8.1/firebase-app.js"></script>
+<script src="/__/firebase/4.8.1/firebase-auth.js"></script>
+<script src="/__/firebase/4.8.1/firebase-database.js"></script>
+<script src="/__/firebase/4.8.1/firebase-messaging.js"></script>
+<script src="/__/firebase/init.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyD4Qfgxz6KKDBYbuynB8Wj-2FJA1sjCeOk",
+    authDomain: "the-mad-corp.firebaseapp.com",
+    databaseURL: "https://the-mad-corp.firebaseio.com",
+    projectId: "the-mad-corp",
+    storageBucket: "the-mad-corp.appspot.com",
+    messagingSenderId: "70562654966"
+  };
+  firebase.initializeApp(config);
+</script>
+</body>
+</html>
