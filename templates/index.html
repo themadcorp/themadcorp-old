@@ -45,6 +45,7 @@ body, html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    transform: scale(1);
 	-webkit-transform: scale(1);
 }
 
@@ -56,7 +57,7 @@ body, html {
 
 /* First image (About) */
 .bgimg-1 {
-    background-image: url('{{ url_for('static', filename='img/tmc-logo-bg.jpg') }}');
+    background-image: url("{{ url_for('static', filename='img/tmc-logo-bg.jpg') }}");
     min-height: 400px;
 }
 
@@ -79,8 +80,9 @@ body, html {
 @media only screen and (max-device-width: 1024px) {
     .bgimg-1, .bgimg-2, .bgimg-3 {
         background-attachment: scroll;
-    }*/
-}
+    }    
+}*/
+
 </style>
 <body>
 
@@ -412,7 +414,7 @@ body, html {
 <div class="w3-padding-large w3-card-4">
 <div class="w3-content w3-justify w3-text-grey w3-padding-64">
   <h2 class="w3-text-grey">Contact Us</h2>
-  <hr style="width:200px" style="font-color:black">
+  <hr style="width:200px" style="color:black">
   <p><em>We'd love your feedback!</em></p>
 
   <div class="w3-row w3-padding-32 w3-section">
