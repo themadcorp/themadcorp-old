@@ -2,8 +2,8 @@ import smtplib
 from email.mime.text import MIMEText
 
 def send_email(name, email, message):
-    FROM_EMAIL='adityaas26@gmail.com'
-    FROM_PASSWORD='g.morning@1998'
+    FROM_EMAIL='themadcorp3@gmail.com'
+    FROM_PASSWORD='themadcorp.com'
     message="Hey, You have a new mail from <strong>%s</strong>! <br>Email Id: %s <br>Message: %s" % (name, email, message)
     subject="You have a new mail"
     toList=["adityaas26@gmail.com", "ms.mayank.n1@gmail.com", "devendrasikarwar1508@gmail.com"]
