@@ -1,21 +1,38 @@
-import smtplib
-from email.mime.text import MIMEText
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 
-def send_email(name, email, message):
-    FROM_EMAIL='themadcorp3@gmail.com'
-    FROM_PASSWORD='themadcorp.com'
-    message="Hey, You have a new mail from <strong>%s</strong>! <br>Email Id: %s <br>Message: %s" % (name, email, message)
-    subject="You have a new mail"
-    toList=["adityaas26@gmail.com", "ms.mayank.n1@gmail.com", "devendrasikarwar1508@gmail.com"]
-
-    gmail = smtplib.SMTP('smtp.gmail.com',587)
-    gmail.ehlo()
-    gmail.starttls()
-    gmail.login(FROM_EMAIL,FROM_PASSWORD)
-
-    msg=MIMEText(message, 'html')
-    msg['Subject']=subject
-    msg['To']=','.join(toList)
-    msg['From']=FROM_EMAIL
-
-    gmail.send_message(msg)
+def send_email(name, email, msg):
+    
+    data = {
+        "personalizations": [
+            {
+            "to": [{
+                    "email": "adityaas26@gmail.com"
+                }, {
+                    "email": "ms.mayankn1@gmail.com"
+                }, {
+                    "email": "devendrasikarwar1508@gmail.com"
+                }, {
+                    "email": "themadcorp3@gmail.com"
+                }],
+            "subject": "Someone approached from the website"
+            }
+        ],
+        "from": {
+            "email": "themadcorp3@gmail.com"
+        },
+        "content": [
+            {
+            "type": "text/html",
+            "value": "Hey, You have a new mail from <strong>{}</strong>! <br>Email Id: {} <br><br>Message: {}".format(name, email, msg)
+            }
+        ]
+    }
+    try:
+        sg = SendGridAPIClient('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')
+        response = sg.client.mail.send.post(request_body=data)
+        print(response.status_code)
+        print(response.body)
+        print(response.headers)
+    except Exception as e:
+        print(e.message)
