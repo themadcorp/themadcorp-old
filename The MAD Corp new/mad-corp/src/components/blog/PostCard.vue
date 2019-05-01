@@ -71,8 +71,8 @@ export default {
 h2.transition {
   text-align: center;
   margin-top: 160px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 12px;
+  padding-right: 12px;
   position: absolute;
   z-index: 9;
   font-size: 22px;
