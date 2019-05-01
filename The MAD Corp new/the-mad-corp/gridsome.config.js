@@ -5,9 +5,9 @@ module.exports = {
     {
       use: '@gridsome/source-wordpress',
       options: {
-        baseUrl: 'https://thelonelyauthorblog.com/', // required
+        baseUrl: 'https://thesolutionsiteblog.wordpress.com/blog', // required
         typeName: 'WordPress', // GraphQL schema name (Optional)
-        perPage: 3, // How many posts to load from server per request (Optional)
+        perPage: 10, // How many posts to load from server per request (Optional)
         concurrent: 10, // How many requests to run simultaneously (Optional)
         routes: {
           post: '/:year/:month/:day/:slug', //adds route for "post" post type (Optional)
