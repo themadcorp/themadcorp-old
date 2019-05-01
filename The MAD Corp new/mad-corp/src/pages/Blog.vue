@@ -6,7 +6,7 @@
     <!-- 2 column grid -->
     <b-container class="text-center">
       <b-row v-for="i in Math.ceil($page.posts.edges.length / 2)" :key="i">
-        <b-col cols="12" md="6" sm="12" v-for="edge in $page.posts.edges.slice((i - 1) * 2, i * 2)" :key="edge.node.id" >
+        <b-col cols="12" md="6" sm="12" v-for="edge in $page.posts.edges.slice((i - 1) * 2, i * 2)" :key="edge.node.id">
           <PostCard :post="edge.node" />
         </b-col>
       </b-row>
@@ -44,7 +44,6 @@
 </page-query>
 
 <script>
-// import Blog from '~/components/'
 import Author from '~/components/blog/Author.vue'
 import PostCard from '~/components/blog/PostCard.vue'
 
@@ -54,7 +53,7 @@ export default {
     PostCard
   },
   metaInfo: {
-    title: 'Home'
+    title: 'Blog'
   }
 }
 </script>

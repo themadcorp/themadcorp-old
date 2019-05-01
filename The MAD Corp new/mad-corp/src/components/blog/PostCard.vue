@@ -74,7 +74,7 @@ h2.transition {
   padding-left: 10px;
   padding-right: 10px;
   position: absolute;
-  z-index: 9999;
+  z-index: 9;
   font-size: 22px;
   color: #2196f3;
   width: 100%;
@@ -101,7 +101,7 @@ h2 small.post-desc {
   text-align: center;
   margin-top: 290px;
   position: absolute;
-  z-index: 9999;
+  z-index: 9;
   width: 100%;
   font-family: Noto-Sans;
 }
@@ -122,7 +122,6 @@ h2 small.post-desc {
 }
 
 a:hover {
-  color: white;
   text-decoration: none;
 }
 
@@ -130,10 +129,10 @@ a:hover {
   position: absolute;
   bottom: 15px;
   left: 20px;
-  z-index: 20;
+  z-index: 10;
   font-family: Noto-Sans;
   color: grey;
-  font-size: 0.7em;
+  font-size: 15px;
 }
 
 .tags {
@@ -145,14 +144,14 @@ a:hover {
 
 .hashtag {
   font-family: Noto-Sans;
-  font-size: 0.5em;
-  background: rgba(150, 150, 150, 0.5);
+  font-size: 10px;
+  background: rgba(180, 180, 180, 0.5);
   border-radius: 0.3rem;
   padding: 0.2em 0.6em;
   margin-right: 0.5em;
-  z-index: 20;
-  font-weight: 700;
-  color: #404040;
+  z-index: 10;
+  font-weight: 600;
+  color: #505050;
 }
 
 </style>

@@ -1,7 +1,20 @@
 <template>
   <div id="app">
 
-    <header class="header">
+    <b-navbar toggleable="lg" type="light" variant="" sticky>
+      <b-navbar-brand><g-link to="/">The MAD Corp.</g-link></b-navbar-brand>
+
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav>
+          <b-nav-item><g-link to="/blog">Blog</g-link></b-nav-item>
+          <b-nav-item><g-link to="/about">About</g-link></b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
+    
+    <!-- <header class="header">
       <div class="header__left">
         <Logo v-if="showLogo" /> 
       </div>
@@ -9,7 +22,9 @@
       <div class="header__right">        
         <ToggleTheme />
       </div>
-    </header>
+    </header> -->
+
+    
 
     <main class="main">
       <slot/>
@@ -52,26 +67,22 @@ export default {
     font-weight: normal;
   }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: var(--header-height);
-  padding: 0 calc(var(--space) / 2);
-  top:0;
-  z-index: 10;
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,.16);
+  // height: 70px;
 
-  &__left,
-  &__right {
-    display: flex;
-    align-items: center;
+  &-toggler {
+    border: none;
   }
 
-  @media screen and (min-width: 1300px) {
-    //Make header sticky for large screens
-    position: sticky;
-    width: 100%;
+  &-toggler:focus {
+    border: unset;
   }
+}
+
+button:focus {
+    outline: none;
 }
 
 .main {
