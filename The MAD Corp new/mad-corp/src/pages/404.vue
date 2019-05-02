@@ -22,7 +22,11 @@
   </section>
 </template>
 
-<style>
+<style scoped>
+section {
+  height: 100vh;
+}
+
 .page_404 {
   padding: 20px 0;
   background: #fff;

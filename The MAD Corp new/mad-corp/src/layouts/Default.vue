@@ -24,8 +24,6 @@
       </div>
     </header> -->
 
-    
-
     <main class="main">
       <GoBack v-if="showGoBack" />
       <slot :showGoBack="false"/>
