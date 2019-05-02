@@ -1,6 +1,6 @@
 <template>
-	<g-link class="logo" to="/">
-	  <span class="logo__text">
+	<g-link class="goBack" to="/blog">
+	  <span class="goBack__text">
 	    &larr; {{ $static.metaData.blogName }}
 	  </span>
 	</g-link>
@@ -15,12 +15,17 @@ query {
 </static-query>
 
 <style lang="scss">
-.logo {
+.goBack {
 	text-decoration: none;
   color: var(--body-color)!important;
   font-size: .9em;
 	font-family: Montserrat;
   
+	&__text {
+		margin: 0 10px 20px 10px;
+		display: inline-block;
+	}
+
 	&__image {
 		vertical-align: middle;
 		border-radius: 99px;

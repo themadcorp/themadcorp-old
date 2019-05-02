@@ -1,5 +1,7 @@
 <template>
   <Layout>
+    <GoBack v-if="showGoBack" />
+
     <div class="post-title">
       <h1 class="post-title__text">
         {{ $page.post.title }}
@@ -33,12 +35,17 @@
 import PostMeta from '~/components/blog/PostMeta'
 import PostTags from '~/components/blog/PostTags'
 import Author from '~/components/blog/Author.vue'
+import GoBack from '~/components/blog/GoBack.vue'
 
 export default {
   components: {
     Author,
     PostMeta,
-    PostTags
+    PostTags,
+    GoBack
+  },
+  props: {
+    showGoBack: { default: true }
   },
   metaInfo () {
     return {

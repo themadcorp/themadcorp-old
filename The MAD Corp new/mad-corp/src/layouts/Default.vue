@@ -2,21 +2,21 @@
   <div id="app">
 
     <b-navbar toggleable="lg" type="light" variant="" sticky>
-      <b-navbar-brand><g-link to="/">The MAD Corp.</g-link></b-navbar-brand>
+      <b-navbar-brand to="/">The MAD Corp.</b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item><g-link to="/blog">Blog</g-link></b-nav-item>
-          <b-nav-item><g-link to="/about">About</g-link></b-nav-item>
+          <b-nav-item to="/blog">Blog</b-nav-item>
+          <b-nav-item to="/about">About</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
     
     <!-- <header class="header">
       <div class="header__left">
-        <Logo v-if="showLogo" /> 
+        <GoBack v-if="showGoBack" /> 
       </div>
       
       <div class="header__right">        
@@ -27,7 +27,8 @@
     
 
     <main class="main">
-      <slot/>
+      <GoBack v-if="showGoBack" />
+      <slot :showGoBack="false"/>
     </main>
 
     <footer class="footer">
@@ -39,15 +40,15 @@
 </template>
 
 <script>
-import Logo from '~/components/blog/Logo.vue'
+import GoBack from '~/components/blog/GoBack.vue'
 import ToggleTheme from '~/components/blog/ToggleTheme.vue'
 
 export default {
   props: {
-    showLogo: { default: true }
+    showGoBack: { default: false }
   },
   components: {
-    Logo,
+    GoBack,
     ToggleTheme
   }
 }
@@ -88,7 +89,7 @@ button:focus {
 .main {
   font-family: Montserrat;
   margin: 0 auto;
-  padding: 1.5vw 15px 0;
+  padding: 1.5em 15px 0;
 }
 
 .footer {

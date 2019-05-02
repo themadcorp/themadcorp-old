@@ -1,5 +1,7 @@
 <template>
   <Layout>
+    <GoBack v-if="showGoBack" />
+    <br>
     <h1 class="tag-title text-center space-bottom">
       # {{ $page.tag.title }}
     </h1>
@@ -36,11 +38,16 @@ query Tag ($id: String!) {
 <script>
 import Author from '~/components/blog/Author.vue'
 import PostCard from '~/components/blog/PostCard.vue'
+import GoBack from '~/components/blog/GoBack.vue'
 
 export default {
   components: {
     Author,
-    PostCard
+    PostCard,
+    GoBack
+  },
+  props: {
+    showGoBack: { default: true }
   },
   metaInfo: {
     title: 'Hello, world!'
@@ -49,6 +56,5 @@ export default {
 </script>
 
 <style lang="scss">
-
+  
 </style>
-
