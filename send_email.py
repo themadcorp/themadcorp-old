@@ -29,7 +29,7 @@ def send_email(name, email, msg):
         ]
     }
     try:
-        sg = SendGridAPIClient('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')
+        sg = SendGridAPIClient('SendGrip-API-key')
         response = sg.client.mail.send.post(request_body=data)
         print(response.status_code)
         print(response.body)
