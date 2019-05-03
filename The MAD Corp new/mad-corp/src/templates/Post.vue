@@ -1,41 +1,40 @@
 <template>
   <Layout>
-    <GoBack v-if="showGoBack" />
+    <div class="content">
+      <GoBack v-if="showGoBack"/>
 
-    <div class="post-title">
-      <h1 class="post-title__text">
-        {{ $page.post.title }}
-      </h1>
-      
-      <PostMeta :post="$page.post" />
+      <div class="post-title">
+        <h1 class="post-title__text">{{ $page.post.title }}</h1>
 
-    </div>
-    
-    <div class="post content-box">
-      <div class="post__header">
-        <g-image alt="Cover image" v-if="$page.post.coverImage" :src="$page.post.coverImage" />
+        <PostMeta :post="$page.post"/>
       </div>
 
-      <div class="post__content" v-html="$page.post.content" />
+      <div class="post content-box">
+        <div class="post__header">
+          <g-image alt="Cover image" v-if="$page.post.coverImage" :src="$page.post.coverImage"/>
+        </div>
 
-      <div class="post__footer">
-        <PostTags :post="$page.post" />
+        <div class="post__content" v-html="$page.post.content"/>
+
+        <div class="post__footer">
+          <PostTags :post="$page.post"/>
+        </div>
       </div>
-    </div>
 
-    <div class="post-comments">
-      <!-- Add comment widgets here -->
-    </div>
+      <div class="post-comments">
+        <!-- Add comment widgets here -->
+      </div>
 
-    <Author class="post-author" />
+      <Author class="post-author"/>
+    </div>
   </Layout>
 </template>
 
 <script>
-import PostMeta from '~/components/blog/PostMeta'
-import PostTags from '~/components/blog/PostTags'
-import Author from '~/components/blog/Author.vue'
-import GoBack from '~/components/blog/GoBack.vue'
+import PostMeta from "~/components/blog/PostMeta";
+import PostTags from "~/components/blog/PostTags";
+import Author from "~/components/blog/Author.vue";
+import GoBack from "~/components/blog/GoBack.vue";
 
 export default {
   components: {
@@ -47,18 +46,18 @@ export default {
   props: {
     showGoBack: { default: true }
   },
-  metaInfo () {
+  metaInfo() {
     return {
       title: this.$page.post.title,
       meta: [
         {
-          name: 'description',
+          name: "description",
           content: this.$page.post.description
         }
       ]
-    }
+    };
   }
-}
+};
 </script>
 
 <page-query>
@@ -91,7 +90,6 @@ query Post ($path: String!) {
 }
 
 .post {
-
   &__header {
     width: calc(100% + var(--space) * 2);
     margin-left: calc(var(--space) * -1);
@@ -99,7 +97,7 @@ query Post ($path: String!) {
     margin-bottom: calc(var(--space) / 2);
     overflow: hidden;
     border-radius: var(--radius) var(--radius) 0 0;
-    
+
     img {
       width: 100%;
     }
@@ -130,7 +128,7 @@ query Post ($path: String!) {
 
 .post-comments {
   padding: calc(var(--space) / 2);
-  
+
   &:empty {
     display: none;
   }

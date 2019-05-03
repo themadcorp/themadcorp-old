@@ -1,13 +1,15 @@
 <template>
   <Layout>
-    <GoBack v-if="showGoBack" />
-    <br>
-    <h1 class="tag-title text-center space-bottom">
-      # {{ $page.tag.title }}
-    </h1>
+    <div class="content">
+      <GoBack v-if="showGoBack" />
+      <br>
+      <h1 class="tag-title text-center space-bottom">
+        # {{ $page.tag.title }}
+      </h1>
 
-    <div class="posts">
-      <PostCard v-for="edge in $page.tag.belongsTo.edges" :key="edge.node.id" :post="edge.node"/>
+      <div class="posts">
+        <PostCard v-for="edge in $page.tag.belongsTo.edges" :key="edge.node.id" :post="edge.node"/>
+      </div>
     </div>
   </Layout>
 </template>

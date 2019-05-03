@@ -4,7 +4,7 @@
     <Author :show-title="true" />
     
     <!-- 2 column grid -->
-    <b-container class="text-center">
+    <b-container class="text-center content">
       <b-row v-for="i in Math.ceil($page.posts.edges.length / 2)" :key="i">
         <b-col cols="12" md="6" sm="12" v-for="edge in $page.posts.edges.slice((i - 1) * 2, i * 2)" :key="edge.node.id">
           <PostCard :post="edge.node" />

@@ -49,6 +49,7 @@ export default {
 
 	&__intro {
 		opacity: .8;
+		padding: 10px 20px;
 	}
 
 	&__site-title {
